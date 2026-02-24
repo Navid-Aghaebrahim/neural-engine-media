@@ -1,6 +1,22 @@
 [
   {
-    "prompt": "Create a square 1024x1024 Instagram post image for a product named Neural-Engine (AI-powered trading signals that keep you in control). Style: modern, high-contrast, dark gradient background with subtle candlestick chart pattern. Big headline text: 'TRADING IS RISKY.' Subheadline: 'Stay in control with AI signals \u2014 you decide.' Small footer text: 'Neural-Engine \u2022 Runs locally on Mac \u2022 TradingView workflow' Include a simple minimal neural network icon and a small disclaimer: 'Not financial advice'. Clean typography, professional fintech aesthetic.",
+    "prompt": "Create a square 1024x1024 Instagram post image for a product named Neural-Engine (AI-powered trading signals that keep you in control). Style: modern, high-contrast, dark gradient background with subtle candlestick chart pattern. Big headline text: 'TRADING IS RISKY.' Subheadline: 'Stay in control with AI signals — you decide.' Small footer text: 'Neural-Engine • Runs locally on Mac • TradingView workflow' Include a simple minimal neural network icon and a small disclaimer: 'Not financial advice'. Clean typography, professional fintech aesthetic.",
     "file": "001-create-a-square-1024x1024-instagram-post.png"
+  },
+  {
+    "prompt": "Create a square 1024x1024 Instagram carousel slide for Neural-Engine. Big headline text: 'AI signals. Your chart. Your choice.'. Subheadline text: 'Neural-Engine overlays insights on TradingView.'. Style: modern, high-contrast, professional fintech aesthetic. Background: dark navy-to-black gradient with a subtle candlestick chart motif and faint grid lines. Add a minimal neural-network icon or node-link glyph. Typography: clean sans-serif, strong hierarchy, generous spacing. Layout: headline large, subhead smaller beneath. Footer bar: 'Neural-Engine • Runs locally on Mac • TradingView overlay' (small). Include tiny disclaimer text: 'Not financial advice' in a corner. Do NOT include performance claims, % returns, rockets, money icons. Keep everything crisp and readable at 1024x1024.",
+    "file": "2026-02-24-AM-how-overlay-works-S01.png"
+  },
+  {
+    "prompt": "Create a square 1024x1024 Instagram carousel slide for Neural-Engine. Big headline text: 'It runs locally on your Mac.'. Subheadline text: 'No account takeover. No broker connection required.'. Style: modern, high-contrast, professional fintech aesthetic. Background: dark navy-to-black gradient with a subtle candlestick chart motif and faint grid lines. Add a minimal neural-network icon or node-link glyph. Typography: clean sans-serif, strong hierarchy, generous spacing. Layout: headline large, subhead smaller beneath. Footer bar: 'Neural-Engine • Runs locally on Mac • TradingView overlay' (small). Include tiny disclaimer text: 'Not financial advice' in a corner. Do NOT include performance claims, % returns, rockets, money icons. Keep everything crisp and readable at 1024x1024.",
+    "file": "2026-02-24-AM-how-overlay-works-S02.png"
+  },
+  {
+    "prompt": "Create a square 1024x1024 Instagram carousel slide for Neural-Engine. Big headline text: 'Signals show up as an overlay.'. Subheadline text: 'You validate, annotate, and decide the action.'. Style: modern, high-contrast, professional fintech aesthetic. Background: dark navy-to-black gradient with a subtle candlestick chart motif and faint grid lines. Add a minimal neural-network icon or node-link glyph. Typography: clean sans-serif, strong hierarchy, generous spacing. Layout: headline large, subhead smaller beneath. Footer bar: 'Neural-Engine • Runs locally on Mac • TradingView overlay' (small). Include tiny disclaimer text: 'Not financial advice' in a corner. Do NOT include performance claims, % returns, rockets, money icons. Keep everything crisp and readable at 1024x1024.",
+    "file": "2026-02-24-AM-how-overlay-works-S03.png"
+  },
+  {
+    "prompt": "Create a square 1024x1024 Instagram carousel slide for Neural-Engine. Big headline text: 'A workflow you can audit.'. Subheadline text: 'Clear context, consistent rules, fewer “gut” clicks.'. Style: modern, high-contrast, professional fintech aesthetic. Background: dark navy-to-black gradient with a subtle candlestick chart motif and faint grid lines. Add a minimal neural-network icon or node-link glyph. Typography: clean sans-serif, strong hierarchy, generous spacing. Layout: headline large, subhead smaller beneath. Footer bar: 'Neural-Engine • Runs locally on Mac • TradingView overlay' (small). Include tiny disclaimer text: 'Not financial advice' in a corner. Do NOT include performance claims, % returns, rockets, money icons. Keep everything crisp and readable at 1024x1024.",
+    "file": "2026-02-24-AM-how-overlay-works-S04.png"
   }
 ]
