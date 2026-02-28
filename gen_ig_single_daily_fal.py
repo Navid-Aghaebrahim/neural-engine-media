@@ -16,12 +16,12 @@ from PIL import Image, ImageDraw, ImageFont
 from ig_fal import generate_image
 
 W = H = 1024
-ACCENT1 = (94, 234, 212)
-ACCENT2 = (139, 92, 246)
-GOLD = (251, 191, 36)
-WHITE = (255, 255, 255)
-GREY = (160, 170, 200)
-DARK = (16, 22, 50)
+ACCENT1 = (16, 185, 129)   # teal (darker for light bg)
+ACCENT2 = (99, 102, 241)   # indigo
+GOLD    = (245, 158, 11)
+WHITE   = (255, 255, 255)
+GREY    = (75, 85, 99)
+INK     = (17, 24, 39)
 
 
 def pt_today() -> str:
@@ -63,11 +63,12 @@ def wrap_text(text: str, font: ImageFont.ImageFont, max_w: int) -> list[str]:
 
 def build_prompt(kind: str) -> str:
     base = (
-        "Square 1024x1024 background for a fintech Instagram post. "
-        "Dark navy gradient, subtle chart motif, teal/violet glow accents, clean minimal. "
+        "Square 1024x1024 background for a premium fintech Instagram post. "
+        "Clean WHITE / light background, subtle light-gray chart motif, soft teal/indigo accents, minimal editorial. "
+        "Very high readability in the center. "
         "No text, no logos, no watermark."
     )
-    artistic = " Cinematic lighting, abstract glassmorphism shapes, modern editorial design."
+    artistic = " Slightly more artistic: gentle gradients, subtle paper texture, modern glassmorphism shapes — keep it LIGHT and professional."
     if kind == "A":
         return base
     if kind == "B":
@@ -103,13 +104,13 @@ def main():
     bh = 36
     bx = (W - bw)//2
     draw.rounded_rectangle([bx, 48, bx+bw, 48+bh], radius=18, fill=(*ACCENT1, 30), outline=(*ACCENT1, 140), width=1)
-    draw.text(((W-(bb[2]-bb[0]))//2, 56), badge, font=badge_font, fill=ACCENT1)
+    draw.text(((W-(bb[2]-bb[0]))//2, 56), badge, font=badge_font, fill=ACCENT2)
 
     # Headline
     y = 150
     for line in args.headline.split("\n"):
         hb = h_font.getbbox(line)
-        draw.text(((W-(hb[2]-hb[0]))//2, y), line, font=h_font, fill=WHITE)
+        draw.text(((W-(hb[2]-hb[0]))//2, y), line, font=h_font, fill=INK)
         y += (hb[3]-hb[1]) + 8
 
     # Subheadline
@@ -128,12 +129,12 @@ def main():
     cx = (W - cw)//2
     cy = H - 210
     draw.rounded_rectangle([cx, cy, cx+cw, cy+ch], radius=18, fill=(*ACCENT2, 35), outline=(*ACCENT2, 140), width=2)
-    draw.text(((W-(cb[2]-cb[0]))//2, cy+14), cta, font=cta_font, fill=GOLD)
+    draw.text(((W-(cb[2]-cb[0]))//2, cy+14), cta, font=cta_font, fill=INK)
 
     # footer
     brand_y = H - 80
-    draw.line([(52, brand_y - 14), (W - 52, brand_y - 14)], fill=(*ACCENT2, 90), width=1)
-    draw.text((52, brand_y), "NEURAL-ENGINE", font=footer_font, fill=ACCENT1)
+    draw.line([(52, brand_y - 14), (W - 52, brand_y - 14)], fill=(229, 231, 235, 255), width=1)
+    draw.text((52, brand_y), "NEURAL-ENGINE", font=footer_font, fill=INK)
     disc = "Not financial advice. Trade responsibly."
     db = disc_font.getbbox(disc)
     draw.text((W-(db[2]-db[0])-52, brand_y+4), disc, font=disc_font, fill=GREY)

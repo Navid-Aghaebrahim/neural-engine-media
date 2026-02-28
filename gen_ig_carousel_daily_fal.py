@@ -22,10 +22,11 @@ from ig_fal import generate_image
 
 W = H = 1024
 
-ACCENT1 = (94, 234, 212)   # teal
-ACCENT2 = (139, 92, 246)   # violet
-GREY = (160, 170, 200)
-WHITE = (255, 255, 255)
+ACCENT1 = (16, 185, 129)   # teal (darker for light bg)
+ACCENT2 = (99, 102, 241)   # indigo
+GREY    = (75, 85, 99)     # slate-600
+INK     = (17, 24, 39)     # near-black
+WHITE   = (255, 255, 255)
 
 
 def pt_today() -> str:
@@ -94,13 +95,14 @@ DEFAULT_SLIDES = [
 def build_prompt(theme: str, variant: str) -> str:
     # Style A: clean, brand-safe
     base = (
-        "Square 1024x1024 background for a fintech Instagram slide. "
-        "Dark navy gradient, subtle chart motif, soft teal/violet glow accents, minimalist, clean. "
+        "Square 1024x1024 background for a premium fintech Instagram slide. "
+        "Clean WHITE / light background, subtle light-gray chart motif, soft teal/indigo accents, minimalist, editorial. "
+        "Very high readability area in the center. "
         "No text, no logos, no watermark, no UI." 
     )
-    # Style B: more artistic
+    # Style B: more artistic (still light)
     artistic = (
-        "Cinematic lighting, higher contrast, abstract glassmorphism shapes, modern editorial design." 
+        "Slightly more artistic: subtle paper texture, gentle gradients, modern glassmorphism shapes, but keep it LIGHT and professional." 
     )
     if variant == "A":
         return base + f" Theme: {theme}."
@@ -154,7 +156,7 @@ def main():
         y = 118
         for line in s.headline.split("\n"):
             hb = h_font.getbbox(line)
-            draw.text(((W - (hb[2]-hb[0]))//2, y), line, font=h_font, fill=WHITE)
+            draw.text(((W - (hb[2]-hb[0]))//2, y), line, font=h_font, fill=INK)
             y += (hb[3]-hb[1]) + 6
 
         # sub
@@ -165,13 +167,13 @@ def main():
         num = f"{idx:02d}/{len(slides):02d}"
         nf = load_font(18, bold=True)
         nb = nf.getbbox(num)
-        draw.rounded_rectangle([48, 52, 48 + (nb[2]-nb[0]) + 22, 52 + 30], radius=15, fill=(16, 22, 50, 220))
+        draw.rounded_rectangle([48, 52, 48 + (nb[2]-nb[0]) + 22, 52 + 30], radius=15, fill=(255, 255, 255, 220), outline=(229, 231, 235, 255), width=1)
         draw.text((58, 57), num, font=nf, fill=GREY)
 
         # footer
         brand_y = H - 80
-        draw.line([(52, brand_y - 14), (W - 52, brand_y - 14)], fill=(*ACCENT2, 100), width=1)
-        draw.text((52, brand_y), "NEURAL-ENGINE", font=footer_font, fill=ACCENT1)
+        draw.line([(52, brand_y - 14), (W - 52, brand_y - 14)], fill=(229, 231, 235, 255), width=1)
+        draw.text((52, brand_y), "NEURAL-ENGINE", font=footer_font, fill=INK)
         disc = "Not financial advice. Trade responsibly."
         db = disc_font.getbbox(disc)
         draw.text((W - (db[2]-db[0]) - 52, brand_y + 4), disc, font=disc_font, fill=GREY)
