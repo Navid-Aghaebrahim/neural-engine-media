@@ -1,13 +1,27 @@
 #!/usr/bin/env python3
-"""
-Publish a single-image IG post via Instagram Graph API.
-Usage: python3 publish_ig_single.py <image_url> <caption>
-"""
-import sys, time, requests, os
+"""Publish a single-image IG post via Instagram Graph API.
 
-TOKEN   = os.environ["META_ACCESS_TOKEN"]
-IG_ID   = os.environ["INSTAGRAM_IG_BUSINESS_ID"]
-BASE    = "https://graph.facebook.com/v22.0"
+Usage:
+  python3 publish_ig_single.py <image_url_or_repo_path> <caption>
+
+Notes:
+- Instagram Graph requires a PUBLICLY-REACHABLE URL.
+- If you pass a repo-relative path like: assets/ig/2026-02-28-PM-foo.png
+  this script will convert it to a raw GitHub URL on the main branch.
+"""
+
+import os
+import sys
+import time
+from typing import Final
+
+import requests
+
+TOKEN: Final[str] = os.environ["META_ACCESS_TOKEN"]
+IG_ID: Final[str] = os.environ["INSTAGRAM_IG_BUSINESS_ID"]
+BASE: Final[str] = "https://graph.facebook.com/v22.0"
+RAW_BASE: Final[str] = "https://raw.githubusercontent.com/Navid-Aghaebrahim/neural-engine-media/main"
+
 
 def api(method, path, **kwargs):
     url = f"{BASE}/{path}"
@@ -19,8 +33,16 @@ def api(method, path, **kwargs):
         sys.exit(1)
     return data
 
-image_url = sys.argv[1]
-caption   = sys.argv[2]
+
+def to_public_url(image_url_or_path: str) -> str:
+    if image_url_or_path.startswith("http://") or image_url_or_path.startswith("https://"):
+        return image_url_or_path
+    p = image_url_or_path.lstrip("/")
+    return f"{RAW_BASE}/{p}"
+
+
+image_url = to_public_url(sys.argv[1])
+caption = sys.argv[2]
 
 # Step 1 — create container
 print("Creating media container...")
