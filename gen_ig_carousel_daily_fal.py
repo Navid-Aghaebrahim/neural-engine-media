@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import argparse
 import datetime as dt
+import json
 import os
 import random
 from dataclasses import dataclass
@@ -91,12 +92,51 @@ DEFAULT_SLIDES = [
     Slide(4, "No Auto-Trading.\n100% Your Call.", "Risk stays with you."),
 ]
 
+THEMES = {
+    "workflow": DEFAULT_SLIDES,
+    "risk": [
+        Slide(1, "Risk Management\nIs The Edge", "Signals are just the start."),
+        Slide(2, "Don't Trust.\nVerify.", "AI suggests. You confirm."),
+        Slide(3, "No Black Boxes.\nSee The Logic.", "Transparent pattern recognition."),
+        Slide(4, "Protect Your Capital.\nTrade Responsibly.", "The most important rule."),
+    ],
+    "privacy": [
+        Slide(1, "Your Data Stays\nOn Your Mac", "Zero cloud processing."),
+        Slide(2, "Local-First\nArchitecture", "Speed + Privacy."),
+        Slide(3, "No API Keys\nShared Externally", "Your broker connection is yours."),
+        Slide(4, "Secure By Default.\nNeural-Engine.", "Trade with peace of mind."),
+    ],
+    "myths": [
+        Slide(1, "Myth: AI Replaces\nThe Trader", "Reality: AI enhances the trader."),
+        Slide(2, "Myth: Signals Are\nMagic Bullets", "Reality: They are probability filters."),
+        Slide(3, "Myth: You Need\nA Supercomputer", "Reality: Optimized for Apple Silicon."),
+        Slide(4, "Augmented Intelligence.\nNot Artificial Hype.", "Neural-Engine."),
+    ],
+    "features": [
+        Slide(1, "Pattern Recognition\nIn Real-Time", "Catch setups you might miss."),
+        Slide(2, "Multi-Timeframe\nAnalysis", "See the bigger picture."),
+        Slide(3, "Native Mac App\nPerformance", "Butter smooth on M-series chips."),
+        Slide(4, "Integrates With\nYour Workflow", "Seamless overlay technology."),
+    ]
+}
+
+
+THEME_VISUALS = {
+    "workflow": "subtle light-gray chart motif, clean lines, minimalist UI elements",
+    "risk": "abstract balance scales, shield motifs, geometric stability, calm blue tones",
+    "privacy": "lock or secure enclave abstract geometry, local-first computing motifs, subtle vault visuals",
+    "myths": "dispelling fog, clarity, light breaking through, sharp contrast",
+    "features": "technical schematics, grid lines, precision, focus, magnifying glass motifs",
+}
+
 
 def build_prompt(theme: str, variant: str) -> str:
+    visual_cue = THEME_VISUALS.get(theme, "subtle light-gray chart motif")
+    
     # Style A: clean, brand-safe
     base = (
         "Square 1024x1024 background for a premium fintech Instagram slide. "
-        "Clean WHITE / light background, subtle light-gray chart motif, soft teal/indigo accents, minimalist, editorial. "
+        f"Clean WHITE / light background, {visual_cue}, soft teal/indigo accents, minimalist, editorial. "
         "Very high readability area in the center. "
         "No text, no logos, no watermark, no UI." 
     )
@@ -104,12 +144,12 @@ def build_prompt(theme: str, variant: str) -> str:
     artistic = (
         "Slightly more artistic: subtle paper texture, gentle gradients, modern glassmorphism shapes, but keep it LIGHT and professional." 
     )
-    if variant == "A":
-        return base + f" Theme: {theme}."
+    
+    prompt = base
     if variant == "B":
-        return base + artistic + f" Theme: {theme}."
-    # Blend
-    return base + artistic + f" Theme: {theme}."
+        prompt += artistic
+        
+    return prompt
 
 
 def main():
@@ -118,6 +158,7 @@ def main():
     ap.add_argument("--slug", default="daily")
     ap.add_argument("--theme", default="workflow")
     ap.add_argument("--slides", type=int, default=4)
+    ap.add_argument("--content", help="Path to JSON file with slide content [{'headline': '...', 'sub': '...'}, ...]")
     args = ap.parse_args()
 
     date = args.date
@@ -133,7 +174,23 @@ def main():
     footer_font = load_font(21, bold=True)
     disc_font = load_font(16, bold=False)
 
-    slides = DEFAULT_SLIDES[: args.slides]
+    slides = []
+    if args.content and os.path.exists(args.content):
+        try:
+            with open(args.content, "r") as f:
+                data = json.load(f)
+                for i, item in enumerate(data, start=1):
+                    slides.append(Slide(i, item.get("headline", ""), item.get("sub", "")))
+        except Exception as e:
+            print(f"Error reading content file: {e}")
+            slides = DEFAULT_SLIDES[: args.slides]
+    else:
+        # Fallback to hardcoded theme mapping
+        base_slides = THEMES.get(theme)
+        if not base_slides:
+            # Fallback for unknown theme -> default slides
+            base_slides = DEFAULT_SLIDES
+        slides = base_slides[: args.slides]
 
     for idx, s in enumerate(slides, start=1):
         variant = "A" if random.random() < 0.7 else "B"
@@ -144,7 +201,8 @@ def main():
         draw = ImageDraw.Draw(bg)
 
         # badge
-        badge = "NEURAL-ENGINE  |  WORKFLOW"
+        theme_label = theme.upper().replace("_", " ")
+        badge = f"NEURAL-ENGINE  |  {theme_label}"
         bb = badge_font.getbbox(badge)
         bw = (bb[2] - bb[0]) + 36
         bh = 36
