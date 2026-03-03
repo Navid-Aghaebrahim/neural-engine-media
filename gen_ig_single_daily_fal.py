@@ -61,10 +61,20 @@ def wrap_text(text: str, font: ImageFont.ImageFont, max_w: int) -> list[str]:
     return lines
 
 
-def build_prompt(kind: str) -> str:
+THEME_VISUALS = {
+    "workflow": "subtle light-gray chart motif, clean lines, minimalist UI elements",
+    "risk": "abstract balance scales, shield motifs, geometric stability, calm blue tones",
+    "privacy": "lock or secure enclave abstract geometry, local-first computing motifs, subtle vault visuals",
+    "myths": "dispelling fog, clarity, light breaking through, sharp contrast",
+    "features": "technical schematics, grid lines, precision, focus, magnifying glass motifs",
+}
+
+
+def build_prompt(kind: str, theme: str = "workflow") -> str:
+    visual_cue = THEME_VISUALS.get(theme, "subtle light-gray chart motif")
     base = (
         "Square 1024x1024 background for a premium fintech Instagram post. "
-        "Clean WHITE / light background, subtle light-gray chart motif, soft teal/indigo accents, minimal editorial. "
+        f"Clean WHITE / light background, {visual_cue}, soft teal/indigo accents, minimal editorial. "
         "Very high readability in the center. "
         "No text, no logos, no watermark."
     )
@@ -80,12 +90,13 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--date", default=pt_today())
     ap.add_argument("--slug", default="daily")
+    ap.add_argument("--theme", default="workflow", help="workflow|risk|privacy|myths|features")
     ap.add_argument("--headline", default="Signals. Not Noise.")
     ap.add_argument("--sub", default="AI overlay inside TradingView. You stay in control.")
     args = ap.parse_args()
 
     variant = "A" if random.random() < 0.6 else "B"  # blend
-    prompt = build_prompt(variant)
+    prompt = build_prompt(variant, theme=args.theme)
 
     img = generate_image(prompt=prompt, model="fal-ai/flux/dev", image_size="square_hd")
     img = img.resize((W, H))
