@@ -280,7 +280,7 @@ for idx, slide in enumerate(SLIDES, start=1):
                                 outline=(*ACCENT1[:3], 110),
                                 width=2)
         cta_font = load_font(29, bold=True)
-        cta_text = "Join the Waitlist  →  neural-engine.ai"
+        cta_text = "Join the Waitlist  →  neural-engine.tech"
         draw.text(((W - text_width(cta_font, cta_text)) // 2, cta_y + 18),
                   cta_text, font=cta_font, fill=ACCENT1)
 

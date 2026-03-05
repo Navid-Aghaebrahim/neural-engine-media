@@ -22,6 +22,7 @@ import requests
 TOKEN = os.environ["META_ACCESS_TOKEN"]
 IG_ID = os.environ["INSTAGRAM_IG_BUSINESS_ID"]
 BASE = "https://graph.facebook.com/v22.0"
+RAW_BASE = "https://cdn.jsdelivr.net/gh/Navid-Aghaebrahim/neural-engine-media@main"
 
 
 def api(method: str, path: str, **kwargs):
@@ -51,13 +52,20 @@ def wait_container(container_id: str, label: str, max_attempts: int = 24, sleep_
     sys.exit(1)
 
 
+def to_public_url(url: str) -> str:
+    if url.startswith("http"):
+        return url
+    path = url.lstrip("/")
+    return f"{RAW_BASE}/{path}"
+
+
 def main():
     if len(sys.argv) < 4:
         print(__doc__.strip(), file=sys.stderr)
         sys.exit(2)
 
     caption = sys.argv[1]
-    image_urls = sys.argv[2:]
+    image_urls = [to_public_url(u) for u in sys.argv[2:]]
 
     if not (3 <= len(image_urls) <= 10):
         print("Carousel must have 3–10 images.", file=sys.stderr)

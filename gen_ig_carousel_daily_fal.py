@@ -122,33 +122,36 @@ THEMES = {
 
 
 THEME_VISUALS = {
-    "workflow": "subtle light-gray chart motif, clean lines, minimalist UI elements",
-    "risk": "abstract balance scales, shield motifs, geometric stability, calm blue tones",
-    "privacy": "lock or secure enclave abstract geometry, local-first computing motifs, subtle vault visuals",
-    "myths": "dispelling fog, clarity, light breaking through, sharp contrast",
-    "features": "technical schematics, grid lines, precision, focus, magnifying glass motifs",
+    "workflow": "clean white trading desk setup, minimalist monitor with trading charts, bright productivity aesthetic, soft shadows",
+    "risk": "conceptual art of a golden shield protecting graph lines, bright airy composition, clean lines, security concept",
+    "privacy": "clean silver vault door mechanism, bright metallic textures, secure enclave concept, white and grey tones",
+    "myths": "bright lightbulb moment, clarity emerging from fog, sharp contrast, clean white studio lighting",
+    "features": "clean technical wireframe of a stock chart, bright blueprint style, precision instruments, macro focus on data points",
 }
 
 
 def build_prompt(theme: str, variant: str) -> str:
-    visual_cue = THEME_VISUALS.get(theme, "subtle light-gray chart motif")
+    visual_cue = THEME_VISUALS.get(theme, "clean financial technology visualization")
     
-    # Style A: clean, brand-safe
+    # Style A: Photorealistic, clean, bright
     base = (
-        "Square 1024x1024 background for a premium fintech Instagram slide. "
-        f"Clean WHITE / light background, {visual_cue}, soft teal/indigo accents, minimalist, editorial. "
-        "Very high readability area in the center. "
-        "No text, no logos, no watermark, no UI." 
+        "High-quality photorealistic render for a fintech Instagram slide. "
+        f"Subject: {visual_cue}. "
+        "Lighting: Bright studio lighting, soft shadows, high key photography. "
+        "Background: Clean WHITE or very light grey/blue. "
+        "Style: Apple marketing aesthetic, premium, minimalist. "
+        "Composition: Center-weighted, leaving negative space for text."
     )
-    # Style B: more artistic (still light)
+    # Style B: 3D Illustration, bright
     artistic = (
-        "Slightly more artistic: subtle paper texture, gentle gradients, modern glassmorphism shapes, but keep it LIGHT and professional." 
+        f"Premium 3D illustration of {theme} related to stock trading. "
+        "Style: Claymorphism or clean 3D render, matte materials. "
+        "Colors: White, soft blue, teal, pastel accents. "
+        "Background: Pure white or soft gradient. "
+        "Lighting: Bright, soft, directional." 
     )
     
-    prompt = base
-    if variant == "B":
-        prompt += artistic
-        
+    prompt = base if variant == "A" else artistic
     return prompt
 
 
@@ -210,16 +213,55 @@ def main():
         draw.rounded_rectangle([bx, 48, bx + bw, 48 + bh], radius=18, fill=(*ACCENT2, 40), outline=(*ACCENT2, 140), width=1)
         draw.text(((W - (bb[2]-bb[0]))//2, 56), badge, font=badge_font, fill=ACCENT1)
 
-        # headline
-        y = 118
-        for line in s.headline.split("\n"):
-            hb = h_font.getbbox(line)
-            draw.text(((W - (hb[2]-hb[0]))//2, y), line, font=h_font, fill=INK)
-            y += (hb[3]-hb[1]) + 6
-
-        # sub
+        # TEXT LAYOUT (Vertical Center)
+        # Calculate total height of text block first
+        total_h = 0
+        headline_lines = s.headline.split("\n")
+        
+        # Measure headline
+        h_metrics = []
+        for line in headline_lines:
+            bb = h_font.getbbox(line)
+            h_metrics.append((line, bb[2]-bb[0], bb[3]-bb[1]))
+            total_h += (bb[3]-bb[1]) + 12 # line gap
+        
+        total_h += 24 # gap to sub
+        
+        # Measure sub
         sb = sub_font.getbbox(s.sub)
-        draw.text(((W - (sb[2]-sb[0]))//2, y + 10), s.sub, font=sub_font, fill=GREY)
+        sub_w = sb[2] - sb[0]
+        sub_h = sb[3] - sb[1]
+        total_h += sub_h
+        
+        # Start Y position for vertical centering
+        start_y = (H - total_h) // 2
+        
+        # Optional: Add a subtle gradient/blur backing behind text for readability?
+        # For now, let's just use a semi-transparent dark box if background is busy
+        # But we don't know if bg is busy. Let's assume the prompt handles "clean area".
+        # Better: Drop shadow for text.
+
+        # Draw Headline
+        y = start_y
+        for line, w, h in h_metrics:
+            # No shadow needed for clean white background, maybe subtle glow if needed
+            # draw.text(((W - w)//2 + 2, y + 2), line, font=h_font, fill=(200,200,200)) 
+            # Text (Dark Ink)
+            draw.text(((W - w)//2, y), line, font=h_font, fill=INK)
+            y += h + 12
+        
+        # Draw Sub (with pill)
+        y += 12
+        # Pill background for sub (Light grey/blue for contrast)
+        pill_pad_x = 24
+        pill_pad_y = 12
+        pill_x = (W - sub_w) // 2
+        draw.rounded_rectangle(
+            [pill_x - pill_pad_x, y - pill_pad_y, pill_x + sub_w + pill_pad_x, y + sub_h + pill_pad_y],
+            radius=16,
+            fill=(243, 244, 246, 255) # Gray-100
+        )
+        draw.text(((W - sub_w)//2, y), s.sub, font=sub_font, fill=ACCENT2)
 
         # slide number
         num = f"{idx:02d}/{len(slides):02d}"

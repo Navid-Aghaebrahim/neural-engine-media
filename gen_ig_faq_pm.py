@@ -159,7 +159,7 @@ draw.rounded_rectangle([60, cta_y, W-60, cta_y+72], radius=16,
                         fill=(*ACCENT1[:3], 30),
                         outline=(*ACCENT1[:3], 120), width=2)
 cta_font = load_font(30, bold=True)
-cta_text = "Join the Waitlist  →  neural-engine.ai"
+cta_text = "Join the Waitlist  →  neural-engine.tech"
 ctax = cta_font.getbbox(cta_text)
 draw.text(((W-(ctax[2]-ctax[0]))//2, cta_y+18), cta_text, font=cta_font, fill=ACCENT1)
 

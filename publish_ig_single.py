@@ -20,7 +20,7 @@ import requests
 TOKEN: Final[str] = os.environ["META_ACCESS_TOKEN"]
 IG_ID: Final[str] = os.environ["INSTAGRAM_IG_BUSINESS_ID"]
 BASE: Final[str] = "https://graph.facebook.com/v22.0"
-RAW_BASE: Final[str] = "https://raw.githubusercontent.com/Navid-Aghaebrahim/neural-engine-media/main"
+RAW_BASE: Final[str] = "https://cdn.jsdelivr.net/gh/Navid-Aghaebrahim/neural-engine-media@main"
 
 
 def api(method, path, **kwargs):
