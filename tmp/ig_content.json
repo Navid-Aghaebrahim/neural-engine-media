@@ -1,18 +1,6 @@
 [
-  {
-    "headline": "Your Alpha is Your Secret.",
-    "sub": "Cloud tools can see your data. We can't."
-  },
-  {
-    "headline": "Zero Latency. Zero Leaks.",
-    "sub": "Runs 100% on your Mac's Neural Engine."
-  },
-  {
-    "headline": "No Servers. No Downtime.",
-    "sub": "Your signals work even when the internet breaks."
-  },
-  {
-    "headline": "Own Your Edge.",
-    "sub": "The future of trading intelligence is private."
-  }
+  {"headline":"Your chart isn’t a cockpit","sub":"Too many dials = slower decisions."},
+  {"headline":"Separate signal from decoration","sub":"One overlay. Everything else stays quiet."},
+  {"headline":"Use a pre-flight checklist","sub":"Context → overlay → notes → then decide."},
+  {"headline":"Neural-Engine fits the workflow","sub":"Local AI overlay on TradingView. You stay in control."}
 ]
