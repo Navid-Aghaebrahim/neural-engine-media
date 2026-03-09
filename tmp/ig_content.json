@@ -1,6 +1,18 @@
 [
-  {"headline":"Your chart isn’t a cockpit","sub":"Too many dials = slower decisions."},
-  {"headline":"Separate signal from decoration","sub":"One overlay. Everything else stays quiet."},
-  {"headline":"Use a pre-flight checklist","sub":"Context → overlay → notes → then decide."},
-  {"headline":"Neural-Engine fits the workflow","sub":"Local AI overlay on TradingView. You stay in control."}
+  {
+    "headline": "Your Data, Your Machine",
+    "sub": "Why give up control to the cloud?"
+  },
+  {
+    "headline": "Zero Server Latency",
+    "sub": "Processing happens instantly on your local Mac."
+  },
+  {
+    "headline": "Uncompromised Privacy",
+    "sub": "Your trading strategies and charts stay private."
+  },
+  {
+    "headline": "Take Back Control",
+    "sub": "Run AI trading models safely without cloud risk."
+  }
 ]
