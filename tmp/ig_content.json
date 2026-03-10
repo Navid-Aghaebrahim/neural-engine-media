@@ -1,18 +1,6 @@
 [
-  {
-    "headline": "Your Data, Your Machine",
-    "sub": "Why give up control to the cloud?"
-  },
-  {
-    "headline": "Zero Server Latency",
-    "sub": "Processing happens instantly on your local Mac."
-  },
-  {
-    "headline": "Uncompromised Privacy",
-    "sub": "Your trading strategies and charts stay private."
-  },
-  {
-    "headline": "Take Back Control",
-    "sub": "Run AI trading models safely without cloud risk."
-  }
+  {"headline":"Your chart is your fingerprint","sub":"Layouts, notes, levels = your edge."},
+  {"headline":"Cloud tools can leak context","sub":"Screenshots + prompts reveal strategy patterns."},
+  {"headline":"Local-first overlays keep control","sub":"Signals render on your Mac, not servers."},
+  {"headline":"Trade plan stays on-chart","sub":"Overlay signals on TradingView—no tab-hopping."}
 ]
