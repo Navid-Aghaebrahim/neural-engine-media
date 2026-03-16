@@ -1,6 +1,18 @@
 [
-  {"headline":"Your chart is your fingerprint","sub":"Layouts, notes, levels = your edge."},
-  {"headline":"Cloud tools can leak context","sub":"Screenshots + prompts reveal strategy patterns."},
-  {"headline":"Local-first overlays keep control","sub":"Signals render on your Mac, not servers."},
-  {"headline":"Trade plan stays on-chart","sub":"Overlay signals on TradingView—no tab-hopping."}
+  {
+    "headline": "Cloud AI Risks Your Strategies",
+    "sub": "Sending data to remote servers exposes your unique edge."
+  },
+  {
+    "headline": "The Local-First Advantage",
+    "sub": "Process signals directly on your Mac. No data leaves your machine."
+  },
+  {
+    "headline": "Zero Latency Processing",
+    "sub": "Eliminate cloud round-trips for faster TradingView overlays."
+  },
+  {
+    "headline": "Total Control, Zero Compromise",
+    "sub": "Get AI power while keeping your trading intellectual property safe."
+  }
 ]
