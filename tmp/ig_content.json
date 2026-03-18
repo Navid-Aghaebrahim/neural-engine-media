@@ -1,18 +1,6 @@
 [
-  {
-    "headline": "Cloud AI Risks Your Strategies",
-    "sub": "Sending data to remote servers exposes your unique edge."
-  },
-  {
-    "headline": "The Local-First Advantage",
-    "sub": "Process signals directly on your Mac. No data leaves your machine."
-  },
-  {
-    "headline": "Zero Latency Processing",
-    "sub": "Eliminate cloud round-trips for faster TradingView overlays."
-  },
-  {
-    "headline": "Total Control, Zero Compromise",
-    "sub": "Get AI power while keeping your trading intellectual property safe."
-  }
+  {"headline": "Are your charts causing decision fatigue?", "sub": "Too many indicators lead to analysis paralysis."},
+  {"headline": "The signal gets lost in the noise.", "sub": "Cluttered screens mask what's actually happening."},
+  {"headline": "A simpler, smarter workflow.", "sub": "Neural-Engine offers clean, AI-driven overlays."},
+  {"headline": "Keep your data local and secure.", "sub": "Runs directly on your Mac. No lag, full privacy."}
 ]
