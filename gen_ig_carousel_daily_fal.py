@@ -23,6 +23,7 @@ from PIL import Image, ImageDraw, ImageFont
 from ig_fal import generate_image
 from ig_strategy import (
     SlidePlan,
+    build_caption,
     build_carousel_plan,
     ensure_distinct_copy,
     save_recent,
@@ -213,8 +214,10 @@ def main():
 
     strategy = getattr(args, "_strategy", None)
     if strategy:
-        save_recent(strategy, slides=[SlidePlan(s.headline, s.sub) for s in slides])
+        caption = build_caption(strategy, kind="carousel")
+        save_recent(strategy, slides=[SlidePlan(s.headline, s.sub) for s in slides], caption=caption)
         print(f"Strategy: {strategy.post_type} | hook={strategy.hook}")
+        print("Caption:\n" + caption)
 
 
 if __name__ == "__main__":

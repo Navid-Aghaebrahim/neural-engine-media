@@ -1,0 +1,38 @@
+[
+  {
+    "theme": "workflow",
+    "kind": "carousel",
+    "slug": "sample-1-workflow",
+    "caption_file": "tmp/ig_samples/sample-1-workflow-carousel-caption.txt"
+  },
+  {
+    "theme": "risk",
+    "kind": "carousel",
+    "slug": "sample-2-risk",
+    "caption_file": "tmp/ig_samples/sample-2-risk-carousel-caption.txt"
+  },
+  {
+    "theme": "features",
+    "kind": "carousel",
+    "slug": "sample-3-features",
+    "caption_file": "tmp/ig_samples/sample-3-features-carousel-caption.txt"
+  },
+  {
+    "theme": "workflow",
+    "kind": "single",
+    "slug": "sample-1-workflow-single",
+    "caption_file": "tmp/ig_samples/sample-1-workflow-single-caption.txt"
+  },
+  {
+    "theme": "risk",
+    "kind": "single",
+    "slug": "sample-2-risk-single",
+    "caption_file": "tmp/ig_samples/sample-2-risk-single-caption.txt"
+  },
+  {
+    "theme": "features",
+    "kind": "single",
+    "slug": "sample-3-features-single",
+    "caption_file": "tmp/ig_samples/sample-3-features-single-caption.txt"
+  }
+]

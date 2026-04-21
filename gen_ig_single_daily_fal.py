@@ -13,7 +13,7 @@ import os
 from PIL import Image, ImageDraw, ImageFont
 
 from ig_fal import generate_image
-from ig_strategy import build_single_plan, save_recent, validate_single_copy
+from ig_strategy import build_caption, build_single_plan, save_recent, validate_single_copy
 
 W = H = 1024
 ACCENT1 = (16, 185, 129)
@@ -177,9 +177,11 @@ def main():
     os.makedirs("assets/ig", exist_ok=True)
     out = f"assets/ig/{args.date}-PM-{args.slug}.png"
     img.convert("RGB").save(out, "PNG")
-    save_recent(strategy, single=auto_plan)
+    caption = build_caption(strategy, kind="single")
+    save_recent(strategy, single=auto_plan, caption=caption)
     print(f"Saved: {out}")
     print(f"Strategy: {strategy.post_type} | hook={strategy.hook}")
+    print("Caption:\n" + caption)
 
 
 if __name__ == "__main__":

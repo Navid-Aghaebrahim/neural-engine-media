@@ -6,7 +6,7 @@ Goals:
 - Keep copy educational *and* commercially useful
 - Enforce text-length guardrails for image legibility
 - Avoid unreadable contrast combinations by using deterministic overlays
-- Provide reusable slide/single-post generation plans
+- Provide reusable slide/single-post generation plans and captions
 """
 
 from __future__ import annotations
@@ -27,6 +27,7 @@ MAX_SUB_WORDS = 14
 MAX_CTA_WORDS = 8
 MAX_BULLETS = 3
 MAX_BULLET_WORDS = 8
+MAX_CAPTION_LINE_WORDS = 18
 
 RECENT_PATH = Path("tmp/ig_recent_history.json")
 
@@ -73,6 +74,11 @@ THEME_BANK = {
             "The product supports faster chart review without taking control away.",
             "The workflow stays local and trader-led.",
         ],
+        "caption_angles": [
+            "pre-trade routine",
+            "chart review discipline",
+            "decision hygiene",
+        ],
     },
     "risk": {
         "lessons": [
@@ -83,6 +89,11 @@ THEME_BANK = {
         "benefits": [
             "Neural-Engine helps surface setups while the trader keeps the decision.",
             "Clearer pattern visibility can make risk reviews more consistent.",
+        ],
+        "caption_angles": [
+            "risk before reward",
+            "position sizing discipline",
+            "invalidation clarity",
         ],
     },
     "privacy": {
@@ -95,6 +106,11 @@ THEME_BANK = {
             "Neural-Engine runs on your Mac and stays inside your workflow.",
             "The product keeps the trader in control instead of hiding behind automation.",
         ],
+        "caption_angles": [
+            "local-first workflow",
+            "privacy and control",
+            "transparent assistance",
+        ],
     },
     "features": {
         "lessons": [
@@ -105,6 +121,11 @@ THEME_BANK = {
         "benefits": [
             "Neural-Engine highlights setups in a format traders already understand.",
             "The app is meant to improve scan speed without replacing judgment.",
+        ],
+        "caption_angles": [
+            "overlay clarity",
+            "feature to workflow",
+            "speed with judgment",
         ],
     },
 }
@@ -131,6 +152,7 @@ class StrategyPlan:
     lesson: str
     benefit: str
     cta: str
+    angle: str
 
 
 def _normalize(text: str) -> str:
@@ -157,7 +179,7 @@ def _load_recent() -> list[dict]:
         return []
 
 
-def save_recent(plan: StrategyPlan, slides: Iterable[SlidePlan] | None = None, single: SinglePlan | None = None) -> None:
+def save_recent(plan: StrategyPlan, slides: Iterable[SlidePlan] | None = None, single: SinglePlan | None = None, caption: str | None = None) -> None:
     RECENT_PATH.parent.mkdir(parents=True, exist_ok=True)
     rows = _load_recent()[-19:]
     rows.append(
@@ -168,8 +190,10 @@ def save_recent(plan: StrategyPlan, slides: Iterable[SlidePlan] | None = None, s
             "lesson": plan.lesson,
             "benefit": plan.benefit,
             "cta": plan.cta,
+            "angle": plan.angle,
             "slides": [s.__dict__ for s in slides] if slides else None,
             "single": single.__dict__ if single else None,
+            "caption": caption,
         }
     )
     RECENT_PATH.write_text(json.dumps(rows, indent=2))
@@ -180,6 +204,7 @@ def choose_strategy(theme: str, seed: int | None = None) -> StrategyPlan:
     recent = _load_recent()
     used_types = {row.get("post_type") for row in recent[-6:]}
     used_hooks = {_normalize(row.get("hook", "")) for row in recent[-8:]}
+    used_angles = {_normalize(row.get("angle", "")) for row in recent[-8:]}
 
     available_types = [p for p in POST_TYPES if p not in used_types] or POST_TYPES
     available_hooks = [h for h in HOOK_PATTERNS if _normalize(h) not in used_hooks] or HOOK_PATTERNS
@@ -187,6 +212,7 @@ def choose_strategy(theme: str, seed: int | None = None) -> StrategyPlan:
     bank = THEME_BANK.get(theme, THEME_BANK["workflow"])
     lesson = rnd.choice(bank["lessons"])
     benefit = rnd.choice(bank["benefits"])
+    angle_options = [a for a in bank["caption_angles"] if _normalize(a) not in used_angles] or bank["caption_angles"]
 
     return StrategyPlan(
         post_type=rnd.choice(available_types),
@@ -195,6 +221,7 @@ def choose_strategy(theme: str, seed: int | None = None) -> StrategyPlan:
         lesson=lesson,
         benefit=benefit,
         cta=rnd.choice(CTA_PATTERNS),
+        angle=rnd.choice(angle_options),
     )
 
 
@@ -230,6 +257,36 @@ def build_single_plan(theme: str, seed: int | None = None) -> tuple[StrategyPlan
         cta=_trim_words(plan.cta, MAX_CTA_WORDS),
     )
     return plan, single
+
+
+def build_caption(plan: StrategyPlan, kind: str = "carousel") -> str:
+    openers = {
+        "carousel": [
+            f"{plan.hook}.",
+            f"{plan.angle.title()} is where a lot of traders get sloppy.",
+        ],
+        "single": [
+            f"{plan.hook}.",
+            f"Better trading workflows start with calmer decisions.",
+        ],
+    }
+    intro = random.choice(openers.get(kind, openers["single"]))
+    lines = [
+        intro,
+        "",
+        f"What this post is really about: {plan.lesson}",
+        f"Why it matters: {plan.benefit}",
+        "",
+        "A simple rule:",
+        "• read context first",
+        "• define risk before entry",
+        "• let the tool support the decision, not replace it",
+        "",
+        f"If you want a more structured workflow, {plan.cta.lower()}.",
+        "",
+        "#trading #tradingview #fintech #investingtools #ai #stockmarket #riskmanagement",
+    ]
+    return "\n".join(lines)
 
 
 def validate_slide_copy(headline: str, sub: str) -> list[str]:
