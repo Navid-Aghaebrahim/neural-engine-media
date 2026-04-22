@@ -181,5 +181,34 @@
       "cta": "Trade with more structure"
     },
     "caption": "Most traders skip this step.\n\nWhat this post is really about: Speed matters only when clarity stays high.\nWhy it matters: The app is meant to improve scan speed without replacing judgment.\n\nA simple rule:\n\u2022 read context first\n\u2022 define risk before entry\n\u2022 let the tool support the decision, not replace it\n\nIf you want a more structured workflow, trade with more structure.\n\n#trading #tradingview #fintech #investingtools #ai #stockmarket #riskmanagement"
+  },
+  {
+    "post_type": "contrarian-tip",
+    "theme": "workflow",
+    "hook": "The signal is not the decision",
+    "lesson": "A checklist beats emotional entries.",
+    "benefit": "The product supports faster chart review without taking control away.",
+    "cta": "See the workflow",
+    "angle": "chart review discipline",
+    "slides": [
+      {
+        "headline": "The signal is not the decision",
+        "sub": "One clear takeaway for better trade decisions."
+      },
+      {
+        "headline": "Step 1: Read context first",
+        "sub": "Trend, level, session, then signal."
+      },
+      {
+        "headline": "Step 2: Define risk before entry",
+        "sub": "Invalidation first. Size second. Entry last."
+      },
+      {
+        "headline": "Where Neural-Engine helps",
+        "sub": "The product supports faster chart review without taking control away."
+      }
+    ],
+    "single": null,
+    "caption": "Chart Review Discipline is where a lot of traders get sloppy.\n\nWhat this post is really about: A checklist beats emotional entries.\nWhy it matters: The product supports faster chart review without taking control away.\n\nA simple rule:\n\u2022 read context first\n\u2022 define risk before entry\n\u2022 let the tool support the decision, not replace it\n\nIf you want a more structured workflow, see the workflow.\n\n#trading #tradingview #fintech #investingtools #ai #stockmarket #riskmanagement"
   }
 ]
