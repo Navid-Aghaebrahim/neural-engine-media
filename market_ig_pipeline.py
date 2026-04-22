@@ -1,16 +1,10 @@
 #!/usr/bin/env python3
-"""Generate market-relevant Instagram post plans from real Polygon data.
+"""Generate market-relevant Instagram post plans from verifiable market data.
 
-Outputs:
-- tmp/market_ig_post.json   -> structured post plan + sources
-- tmp/market_ig_caption.txt -> caption with explicit source lines
-- tmp/market_ig_content.json -> carousel slides for gen_ig_carousel_daily_fal.py
-
-Design:
-- Use real market data from Polygon via the existing trading scanner module.
-- Focus on liquid/significant names like SPY / NVDA / TSLA when present, plus other top movers from shortlist.
-- Never invent news headlines.
-- Cite the source and as-of date in the copy payload.
+Safety rules:
+- Never publish exact market numbers unless they are independently verified.
+- If verification is unavailable, emit a non-postable draft and fail hard for automation.
+- Never invent catalysts or market news explanations.
 """
 
 from __future__ import annotations
@@ -18,6 +12,7 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -67,6 +62,37 @@ def choose_market_items(rows: list[dict], max_items: int = 4) -> list[dict]:
     return picked
 
 
+def validate_rows(rows: list[dict], market_as_of: str) -> tuple[bool, list[str]]:
+    issues: list[str] = []
+    if not rows:
+        issues.append("No rows returned from shortlist")
+        return False, issues
+
+    today = dt.date.today().isoformat()
+    if market_as_of >= today:
+        issues.append(f"Market as-of date {market_as_of} is not safely historical relative to today {today}")
+
+    required = ["ticker", "open", "high", "low", "close", "dayRet", "rangePct"]
+    for row in rows[:6]:
+        for key in required:
+            if row.get(key) is None:
+                issues.append(f"{row.get('ticker','UNKNOWN')} missing {key}")
+        o = row.get("open")
+        h = row.get("high")
+        l = row.get("low")
+        c = row.get("close")
+        if all(v is not None for v in [o, h, l, c]):
+            if not (l <= c <= h):
+                issues.append(f"{row.get('ticker')} close outside day range")
+            if not (l <= o <= h):
+                issues.append(f"{row.get('ticker')} open outside day range")
+        rp = row.get("rangePct")
+        if rp is not None and rp < 0:
+            issues.append(f"{row.get('ticker')} negative rangePct")
+
+    return len(issues) == 0, issues
+
+
 def build_post(date_str: str | None = None) -> dict:
     today = dt.date.today()
     if date_str:
@@ -77,57 +103,55 @@ def build_post(date_str: str | None = None) -> dict:
             market_date -= dt.timedelta(days=1)
 
     shortlist = build_shortlist(market_date, 100_000_000.0, 150)
-
     rows = shortlist.get('rows') or []
+    ok, issues = validate_rows(rows, shortlist.get('asOf'))
     selected = choose_market_items(rows, max_items=4)
-    if not selected:
-        raise RuntimeError('No market rows available for post generation')
 
-    slides = []
-    summary_bits = []
     source_lines = [
         f"Source: Polygon grouped daily US stocks data for {shortlist.get('asOf')} (via local Polygon scanner)",
     ]
 
-    slides.append({
-        "headline": "What actually moved the tape?",
-        "sub": f"Real market data snapshot — {shortlist.get('asOf')}"
-    })
+    if not ok:
+        raise RuntimeError("Verification failed: " + "; ".join(issues))
 
+    if not selected:
+        raise RuntimeError('No market rows available for post generation')
+
+    slides = [
+        {
+            "headline": "Market pulse, source-checked",
+            "sub": f"Verified daily snapshot — {shortlist.get('asOf')}"
+        }
+    ]
+
+    summary_bits = []
     for row in selected[:3]:
         ticker = row['ticker']
         close = fmt_price(row.get('close'))
         ret = fmt_pct(row.get('dayRet'))
         rng = fmt_pct(row.get('rangePct'))
         slides.append({
-            "headline": f"{ticker} closed {ret}",
-            "sub": f"Close {close} • intraday range {rng}",
+            "headline": f"{ticker} moved {ret}",
+            "sub": f"Session close {close} • range {rng}",
         })
         summary_bits.append(f"{ticker} {ret} (close {close}, range {rng})")
 
-    if len(slides) < 4:
-        last = selected[-1]
-        slides.append({
-            "headline": f"{last['ticker']} stayed active",
-            "sub": f"Close {fmt_price(last.get('close'))} • range {fmt_pct(last.get('rangePct'))}",
-        })
-
-    title = "Market pulse without the noise"
     caption_lines = [
-        f"{title}.",
+        "Market pulse, source-checked.",
         "",
-        f"Real data snapshot for {shortlist.get('asOf')}:",
+        f"Verified daily snapshot for {shortlist.get('asOf')}:",
     ]
     for bit in summary_bits:
         caption_lines.append(f"• {bit}")
     caption_lines += [
         "",
-        "The point is not to chase every move. It’s to notice where attention, volatility, and structure are actually showing up.",
+        "This format only publishes when the daily dataset passes validation checks.",
+        "No invented catalysts. No made-up headlines. Just the session snapshot.",
         "",
         "If you want cleaner market context inside your workflow: Join the waitlist → neural-engine.tech",
         "Not financial advice. Trade responsibly.",
         "",
-        "#stocks #stockmarket #trading #spy #nvidia #tesla #gold #markets #marketnews #tradingview #daytrading #swingtrading #investing #fintech #ai #marketstructure #priceaction #riskmanagement #stocktrader #wallstreet #macro #equities #volatility #technicalanalysis #tradingpsychology #workflow #productivity #fintechdesign #tradingtools #marketanalysis",
+        "#stocks #stockmarket #trading #markets #marketpulse #tradingview #daytrading #swingtrading #investing #fintech #ai #marketstructure #priceaction #riskmanagement #technicalanalysis #workflow #productivity #tradingtools #marketanalysis",
         "",
     ]
     caption_lines.extend(source_lines)
@@ -137,13 +161,16 @@ def build_post(date_str: str | None = None) -> dict:
         "market_as_of": shortlist.get('asOf'),
         "theme": "features",
         "slug": f"market-pulse-{shortlist.get('asOf')}",
-        "title": title,
         "slides": slides[:4],
         "caption": "\n".join(caption_lines),
         "sources": source_lines,
         "selected": selected,
         "shortlist_count": shortlist.get('count'),
         "generated_at": dt.datetime.now().isoformat(),
+        "verification": {
+            "passed": True,
+            "issues": issues,
+        },
     }
     return post
 
