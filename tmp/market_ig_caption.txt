@@ -1,16 +1,16 @@
-Market pulse, source-checked.
+Market recap — 2026-04-21 close.
 
-Verified daily snapshot for 2026-04-21:
+Source-checked daily snapshot for 2026-04-21:
 • SPY -0.87% (close $704.08, range +1.22%)
 • QQQ -0.63% (close $644.33, range +1.23%)
 • NVDA -1.11% (close $199.88, range +1.86%)
 
 This format only publishes when the daily dataset passes validation checks.
-No invented catalysts. No made-up headlines. Just the session snapshot.
+No invented catalysts. No made-up headlines. Just the completed session snapshot.
 
 If you want cleaner market context inside your workflow: Join the waitlist → neural-engine.tech
 Not financial advice. Trade responsibly.
 
-#stocks #stockmarket #trading #markets #marketpulse #tradingview #daytrading #swingtrading #investing #fintech #ai #marketstructure #priceaction #riskmanagement #technicalanalysis #workflow #productivity #tradingtools #marketanalysis
+#stocks #stockmarket #trading #markets #marketrecap #tradingview #daytrading #swingtrading #investing #fintech #ai #marketstructure #priceaction #riskmanagement #technicalanalysis #workflow #productivity #tradingtools #marketanalysis
 
 Source: Polygon grouped daily US stocks data for 2026-04-21 (via local Polygon scanner)

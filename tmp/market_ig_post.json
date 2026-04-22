@@ -2,26 +2,26 @@
   "date": "2026-04-22",
   "market_as_of": "2026-04-21",
   "theme": "features",
-  "slug": "market-pulse-2026-04-21",
+  "slug": "market-recap-2026-04-21",
   "slides": [
     {
-      "headline": "Market pulse, source-checked",
-      "sub": "Verified daily snapshot \u2014 2026-04-21"
+      "headline": "Market recap \u2014 2026-04-21",
+      "sub": "Source-checked daily session snapshot"
     },
     {
-      "headline": "SPY moved -0.87%",
-      "sub": "Session close $704.08 \u2022 range +1.22%"
+      "headline": "SPY on 2026-04-21: -0.87%",
+      "sub": "Close $704.08 \u2022 session range +1.22%"
     },
     {
-      "headline": "QQQ moved -0.63%",
-      "sub": "Session close $644.33 \u2022 range +1.23%"
+      "headline": "QQQ on 2026-04-21: -0.63%",
+      "sub": "Close $644.33 \u2022 session range +1.23%"
     },
     {
-      "headline": "NVDA moved -1.11%",
-      "sub": "Session close $199.88 \u2022 range +1.86%"
+      "headline": "NVDA on 2026-04-21: -1.11%",
+      "sub": "Close $199.88 \u2022 session range +1.86%"
     }
   ],
-  "caption": "Market pulse, source-checked.\n\nVerified daily snapshot for 2026-04-21:\n\u2022 SPY -0.87% (close $704.08, range +1.22%)\n\u2022 QQQ -0.63% (close $644.33, range +1.23%)\n\u2022 NVDA -1.11% (close $199.88, range +1.86%)\n\nThis format only publishes when the daily dataset passes validation checks.\nNo invented catalysts. No made-up headlines. Just the session snapshot.\n\nIf you want cleaner market context inside your workflow: Join the waitlist \u2192 neural-engine.tech\nNot financial advice. Trade responsibly.\n\n#stocks #stockmarket #trading #markets #marketpulse #tradingview #daytrading #swingtrading #investing #fintech #ai #marketstructure #priceaction #riskmanagement #technicalanalysis #workflow #productivity #tradingtools #marketanalysis\n\nSource: Polygon grouped daily US stocks data for 2026-04-21 (via local Polygon scanner)",
+  "caption": "Market recap \u2014 2026-04-21 close.\n\nSource-checked daily snapshot for 2026-04-21:\n\u2022 SPY -0.87% (close $704.08, range +1.22%)\n\u2022 QQQ -0.63% (close $644.33, range +1.23%)\n\u2022 NVDA -1.11% (close $199.88, range +1.86%)\n\nThis format only publishes when the daily dataset passes validation checks.\nNo invented catalysts. No made-up headlines. Just the completed session snapshot.\n\nIf you want cleaner market context inside your workflow: Join the waitlist \u2192 neural-engine.tech\nNot financial advice. Trade responsibly.\n\n#stocks #stockmarket #trading #markets #marketrecap #tradingview #daytrading #swingtrading #investing #fintech #ai #marketstructure #priceaction #riskmanagement #technicalanalysis #workflow #productivity #tradingtools #marketanalysis\n\nSource: Polygon grouped daily US stocks data for 2026-04-21 (via local Polygon scanner)",
   "sources": [
     "Source: Polygon grouped daily US stocks data for 2026-04-21 (via local Polygon scanner)"
   ],
@@ -80,7 +80,7 @@
     }
   ],
   "shortlist_count": 150,
-  "generated_at": "2026-04-22T15:27:11.656773",
+  "generated_at": "2026-04-22T16:31:26.729364",
   "verification": {
     "passed": true,
     "issues": []

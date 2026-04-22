@@ -1,18 +1,18 @@
 [
   {
-    "headline": "Market pulse, source-checked",
-    "sub": "Verified daily snapshot \u2014 2026-04-21"
+    "headline": "Market recap \u2014 2026-04-21",
+    "sub": "Source-checked daily session snapshot"
   },
   {
-    "headline": "SPY moved -0.87%",
-    "sub": "Session close $704.08 \u2022 range +1.22%"
+    "headline": "SPY on 2026-04-21: -0.87%",
+    "sub": "Close $704.08 \u2022 session range +1.22%"
   },
   {
-    "headline": "QQQ moved -0.63%",
-    "sub": "Session close $644.33 \u2022 range +1.23%"
+    "headline": "QQQ on 2026-04-21: -0.63%",
+    "sub": "Close $644.33 \u2022 session range +1.23%"
   },
   {
-    "headline": "NVDA moved -1.11%",
-    "sub": "Session close $199.88 \u2022 range +1.86%"
+    "headline": "NVDA on 2026-04-21: -1.11%",
+    "sub": "Close $199.88 \u2022 session range +1.86%"
   }
 ]
