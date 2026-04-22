@@ -140,7 +140,7 @@ def main():
     h_font = load_font(56, bold=True)
     sub_font = load_font(28, bold=False)
     footer_font = load_font(21, bold=True)
-    disc_font = load_font(16, bold=False)
+    disc_font = load_font(14, bold=False)
 
     slides = parse_slides(args)[: args.slides]
 
@@ -201,12 +201,14 @@ def main():
         draw.rounded_rectangle([48, 52, 48 + (nb[2] - nb[0]) + 22, 82], radius=15, fill=(255, 255, 255, 220), outline=(229, 231, 235, 255), width=1)
         draw.text((58, 57), num, font=nf, fill=GREY)
 
-        brand_y = H - 80
-        draw.line([(52, brand_y - 14), (W - 52, brand_y - 14)], fill=(229, 231, 235, 255), width=1)
+        footer_box = (36, H - 116, W - 36, H - 34)
+        draw.rounded_rectangle(footer_box, radius=20, fill=(255, 255, 255, 235), outline=(229, 231, 235, 255), width=1)
+        brand_y = H - 87
+        draw.line([(52, brand_y - 12), (W - 52, brand_y - 12)], fill=(229, 231, 235, 255), width=1)
         draw.text((52, brand_y), "NEURAL-ENGINE", font=footer_font, fill=INK)
         disc = "Not financial advice. Trade responsibly."
         db = disc_font.getbbox(disc)
-        draw.text((W - (db[2] - db[0]) - 52, brand_y + 4), disc, font=disc_font, fill=GREY)
+        draw.text((W - (db[2] - db[0]) - 52, brand_y + 3), disc, font=disc_font, fill=GREY)
 
         out = f"assets/ig/{args.date}-AM-{args.slug}-S{idx:02d}.png"
         bg.convert("RGB").save(out, "PNG")

@@ -1,1 +1,18 @@
-[{"headline":"Reduce Noise Before Every Entry","sub":"One minute of structure beats reactive clicks"},{"headline":"Check Context, Then Check Signal","sub":"Trend, level, session, then overlay confirmation"},{"headline":"Define Risk Before You Click","sub":"Invalidation first. Position size second. Entry last."},{"headline":"Log Decision, Not Outcome","sub":"Process notes build discipline over time"}]
+[
+  {
+    "headline": "Less Friction, Better Review",
+    "sub": "Good workflows remove clicks, not judgment"
+  },
+  {
+    "headline": "Context Before Confirmation",
+    "sub": "Trend, levels, session first. Overlay second."
+  },
+  {
+    "headline": "Preset the Repetitive Stuff",
+    "sub": "Layouts and alerts should save mental energy"
+  },
+  {
+    "headline": "Keep the Trader in Control",
+    "sub": "Neural-Engine supports review inside TradingView"
+  }
+]
