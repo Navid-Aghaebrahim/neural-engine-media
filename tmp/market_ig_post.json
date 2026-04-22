@@ -1,0 +1,85 @@
+{
+  "date": "2026-04-22",
+  "market_as_of": "2026-04-21",
+  "theme": "features",
+  "slug": "market-pulse-2026-04-21",
+  "title": "Market pulse without the noise",
+  "slides": [
+    {
+      "headline": "What actually moved the tape?",
+      "sub": "Real market data snapshot \u2014 2026-04-21"
+    },
+    {
+      "headline": "SPY closed -0.87%",
+      "sub": "Close $704.08 \u2022 intraday range +1.22%"
+    },
+    {
+      "headline": "QQQ closed -0.63%",
+      "sub": "Close $644.33 \u2022 intraday range +1.23%"
+    },
+    {
+      "headline": "NVDA closed -1.11%",
+      "sub": "Close $199.88 \u2022 intraday range +1.86%"
+    }
+  ],
+  "caption": "Market pulse without the noise.\n\nReal data snapshot for 2026-04-21:\n\u2022 SPY -0.87% (close $704.08, range +1.22%)\n\u2022 QQQ -0.63% (close $644.33, range +1.23%)\n\u2022 NVDA -1.11% (close $199.88, range +1.86%)\n\nThe point is not to chase every move. It\u2019s to notice where attention, volatility, and structure are actually showing up.\n\nIf you want cleaner market context inside your workflow: Join the waitlist \u2192 neural-engine.tech\nNot financial advice. Trade responsibly.\n\n#stocks #stockmarket #trading #spy #nvidia #tesla #gold #markets #marketnews #tradingview #daytrading #swingtrading #investing #fintech #ai #marketstructure #priceaction #riskmanagement #stocktrader #wallstreet #macro #equities #volatility #technicalanalysis #tradingpsychology #workflow #productivity #fintechdesign #tradingtools #marketanalysis\n\nSource: Polygon grouped daily US stocks data for 2026-04-21 (via local Polygon scanner)",
+  "sources": [
+    "Source: Polygon grouped daily US stocks data for 2026-04-21 (via local Polygon scanner)"
+  ],
+  "selected": [
+    {
+      "ticker": "SPY",
+      "open": 710.28,
+      "high": 711.275,
+      "low": 702.64,
+      "close": 704.08,
+      "dollarVol": 41613541514.73314,
+      "vol": 58900470.236185,
+      "vw": 706.5061,
+      "dayRet": -0.0087289519626062,
+      "rangePct": 0.012157177451146015,
+      "score": 204671.66383190948
+    },
+    {
+      "ticker": "QQQ",
+      "open": 648.41,
+      "high": 650.2,
+      "low": 642.21,
+      "close": 644.33,
+      "dollarVol": 25567096576.11261,
+      "vol": 39554881.360732,
+      "vw": 646.3702,
+      "dayRet": -0.0062923150475778095,
+      "rangePct": 0.012322450301506777,
+      "score": 160848.94723998825
+    },
+    {
+      "ticker": "NVDA",
+      "open": 202.13,
+      "high": 202.75,
+      "low": 199.0,
+      "close": 199.88,
+      "dollarVol": 21654034924.40604,
+      "vol": 107894969.864327,
+      "vw": 200.6955,
+      "dayRet": -0.011131450056894079,
+      "rangePct": 0.01855241676149013,
+      "score": 148214.72917909556
+    },
+    {
+      "ticker": "TSLA",
+      "open": 393.0,
+      "high": 393.95,
+      "low": 385.2201,
+      "close": 386.42,
+      "dollarVol": 19686533213.365326,
+      "vol": 50518744.14657,
+      "vw": 389.6877,
+      "dayRet": -0.01674300254452922,
+      "rangePct": 0.022213486005089024,
+      "score": 141024.0796161143
+    }
+  ],
+  "shortlist_count": 150,
+  "generated_at": "2026-04-22T14:41:04.204016"
+}
