@@ -1,18 +1,18 @@
 [
   {
-    "headline": "What actually moved the tape?",
-    "sub": "Real market data snapshot \u2014 2026-04-21"
+    "headline": "Market pulse, source-checked",
+    "sub": "Verified daily snapshot \u2014 2026-04-21"
   },
   {
-    "headline": "SPY closed -0.87%",
-    "sub": "Close $704.08 \u2022 intraday range +1.22%"
+    "headline": "SPY moved -0.87%",
+    "sub": "Session close $704.08 \u2022 range +1.22%"
   },
   {
-    "headline": "QQQ closed -0.63%",
-    "sub": "Close $644.33 \u2022 intraday range +1.23%"
+    "headline": "QQQ moved -0.63%",
+    "sub": "Session close $644.33 \u2022 range +1.23%"
   },
   {
-    "headline": "NVDA closed -1.11%",
-    "sub": "Close $199.88 \u2022 intraday range +1.86%"
+    "headline": "NVDA moved -1.11%",
+    "sub": "Session close $199.88 \u2022 range +1.86%"
   }
 ]
