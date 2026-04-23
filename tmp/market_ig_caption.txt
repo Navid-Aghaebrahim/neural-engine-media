@@ -1,9 +1,9 @@
-Market recap — 2026-04-21 close.
+Market recap — 2026-04-22 close.
 
-Source-checked daily snapshot for 2026-04-21:
-• SPY -0.87% (close $704.08, range +1.22%)
-• QQQ -0.63% (close $644.33, range +1.23%)
-• NVDA -1.11% (close $199.88, range +1.86%)
+Source-checked daily snapshot for 2026-04-22:
+• SPY +0.29% (close $711.21, range +0.46%)
+• QQQ +0.76% (close $655.11, range +1.05%)
+• NVDA +0.75% (close $202.50, range +1.74%)
 
 This format only publishes when the daily dataset passes validation checks.
 No invented catalysts. No made-up headlines. Just the completed session snapshot.
@@ -13,4 +13,4 @@ Not financial advice. Trade responsibly.
 
 #stocks #stockmarket #trading #markets #marketrecap #tradingview #daytrading #swingtrading #investing #fintech #ai #marketstructure #priceaction #riskmanagement #technicalanalysis #workflow #productivity #tradingtools #marketanalysis
 
-Source: Polygon grouped daily US stocks data for 2026-04-21 (via local Polygon scanner)
+Source: Polygon grouped daily US stocks data for 2026-04-22 (via local Polygon scanner)

@@ -5,6 +5,7 @@ Safety rules:
 - Never publish exact market numbers unless they are independently verified.
 - If verification is unavailable, emit a non-postable draft and fail hard for automation.
 - Never invent catalysts or market news explanations.
+- Always label the market session date explicitly in both image copy and caption.
 """
 
 from __future__ import annotations
@@ -12,7 +13,6 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import json
-import re
 import sys
 from pathlib import Path
 
@@ -103,12 +103,13 @@ def build_post(date_str: str | None = None) -> dict:
             market_date -= dt.timedelta(days=1)
 
     shortlist = build_shortlist(market_date, 100_000_000.0, 150)
+    market_as_of = shortlist.get('asOf')
     rows = shortlist.get('rows') or []
-    ok, issues = validate_rows(rows, shortlist.get('asOf'))
+    ok, issues = validate_rows(rows, market_as_of)
     selected = choose_market_items(rows, max_items=4)
 
     source_lines = [
-        f"Source: Polygon grouped daily US stocks data for {shortlist.get('asOf')} (via local Polygon scanner)",
+        f"Source: Polygon grouped daily US stocks data for {market_as_of} (via local Polygon scanner)",
     ]
 
     if not ok:
@@ -119,8 +120,8 @@ def build_post(date_str: str | None = None) -> dict:
 
     slides = [
         {
-            "headline": "Market pulse, source-checked",
-            "sub": f"Verified daily snapshot — {shortlist.get('asOf')}"
+            "headline": f"Market recap — {market_as_of}",
+            "sub": "Source-checked daily session snapshot"
         }
     ]
 
@@ -131,36 +132,36 @@ def build_post(date_str: str | None = None) -> dict:
         ret = fmt_pct(row.get('dayRet'))
         rng = fmt_pct(row.get('rangePct'))
         slides.append({
-            "headline": f"{ticker} moved {ret}",
-            "sub": f"Session close {close} • range {rng}",
+            "headline": f"{ticker} on {market_as_of}: {ret}",
+            "sub": f"Close {close} • session range {rng}",
         })
         summary_bits.append(f"{ticker} {ret} (close {close}, range {rng})")
 
     caption_lines = [
-        "Market pulse, source-checked.",
+        f"Market recap — {market_as_of} close.",
         "",
-        f"Verified daily snapshot for {shortlist.get('asOf')}:",
+        f"Source-checked daily snapshot for {market_as_of}:",
     ]
     for bit in summary_bits:
         caption_lines.append(f"• {bit}")
     caption_lines += [
         "",
         "This format only publishes when the daily dataset passes validation checks.",
-        "No invented catalysts. No made-up headlines. Just the session snapshot.",
+        "No invented catalysts. No made-up headlines. Just the completed session snapshot.",
         "",
         "If you want cleaner market context inside your workflow: Join the waitlist → neural-engine.tech",
         "Not financial advice. Trade responsibly.",
         "",
-        "#stocks #stockmarket #trading #markets #marketpulse #tradingview #daytrading #swingtrading #investing #fintech #ai #marketstructure #priceaction #riskmanagement #technicalanalysis #workflow #productivity #tradingtools #marketanalysis",
+        "#stocks #stockmarket #trading #markets #marketrecap #tradingview #daytrading #swingtrading #investing #fintech #ai #marketstructure #priceaction #riskmanagement #technicalanalysis #workflow #productivity #tradingtools #marketanalysis",
         "",
     ]
     caption_lines.extend(source_lines)
 
     post = {
         "date": str(today),
-        "market_as_of": shortlist.get('asOf'),
+        "market_as_of": market_as_of,
         "theme": "features",
-        "slug": f"market-pulse-{shortlist.get('asOf')}",
+        "slug": f"market-recap-{market_as_of}",
         "slides": slides[:4],
         "caption": "\n".join(caption_lines),
         "sources": source_lines,

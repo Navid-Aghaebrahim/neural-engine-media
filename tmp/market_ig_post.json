@@ -1,86 +1,86 @@
 {
-  "date": "2026-04-22",
-  "market_as_of": "2026-04-21",
+  "date": "2026-04-23",
+  "market_as_of": "2026-04-22",
   "theme": "features",
-  "slug": "market-recap-2026-04-21",
+  "slug": "market-recap-2026-04-22",
   "slides": [
     {
-      "headline": "Market recap \u2014 2026-04-21",
+      "headline": "Market recap \u2014 2026-04-22",
       "sub": "Source-checked daily session snapshot"
     },
     {
-      "headline": "SPY on 2026-04-21: -0.87%",
-      "sub": "Close $704.08 \u2022 session range +1.22%"
+      "headline": "SPY on 2026-04-22: +0.29%",
+      "sub": "Close $711.21 \u2022 session range +0.46%"
     },
     {
-      "headline": "QQQ on 2026-04-21: -0.63%",
-      "sub": "Close $644.33 \u2022 session range +1.23%"
+      "headline": "QQQ on 2026-04-22: +0.76%",
+      "sub": "Close $655.11 \u2022 session range +1.05%"
     },
     {
-      "headline": "NVDA on 2026-04-21: -1.11%",
-      "sub": "Close $199.88 \u2022 session range +1.86%"
+      "headline": "NVDA on 2026-04-22: +0.75%",
+      "sub": "Close $202.50 \u2022 session range +1.74%"
     }
   ],
-  "caption": "Market recap \u2014 2026-04-21 close.\n\nSource-checked daily snapshot for 2026-04-21:\n\u2022 SPY -0.87% (close $704.08, range +1.22%)\n\u2022 QQQ -0.63% (close $644.33, range +1.23%)\n\u2022 NVDA -1.11% (close $199.88, range +1.86%)\n\nThis format only publishes when the daily dataset passes validation checks.\nNo invented catalysts. No made-up headlines. Just the completed session snapshot.\n\nIf you want cleaner market context inside your workflow: Join the waitlist \u2192 neural-engine.tech\nNot financial advice. Trade responsibly.\n\n#stocks #stockmarket #trading #markets #marketrecap #tradingview #daytrading #swingtrading #investing #fintech #ai #marketstructure #priceaction #riskmanagement #technicalanalysis #workflow #productivity #tradingtools #marketanalysis\n\nSource: Polygon grouped daily US stocks data for 2026-04-21 (via local Polygon scanner)",
+  "caption": "Market recap \u2014 2026-04-22 close.\n\nSource-checked daily snapshot for 2026-04-22:\n\u2022 SPY +0.29% (close $711.21, range +0.46%)\n\u2022 QQQ +0.76% (close $655.11, range +1.05%)\n\u2022 NVDA +0.75% (close $202.50, range +1.74%)\n\nThis format only publishes when the daily dataset passes validation checks.\nNo invented catalysts. No made-up headlines. Just the completed session snapshot.\n\nIf you want cleaner market context inside your workflow: Join the waitlist \u2192 neural-engine.tech\nNot financial advice. Trade responsibly.\n\n#stocks #stockmarket #trading #markets #marketrecap #tradingview #daytrading #swingtrading #investing #fintech #ai #marketstructure #priceaction #riskmanagement #technicalanalysis #workflow #productivity #tradingtools #marketanalysis\n\nSource: Polygon grouped daily US stocks data for 2026-04-22 (via local Polygon scanner)",
   "sources": [
-    "Source: Polygon grouped daily US stocks data for 2026-04-21 (via local Polygon scanner)"
+    "Source: Polygon grouped daily US stocks data for 2026-04-22 (via local Polygon scanner)"
   ],
   "selected": [
     {
       "ticker": "SPY",
-      "open": 710.28,
-      "high": 711.275,
-      "low": 702.64,
-      "close": 704.08,
-      "dollarVol": 41613541514.73314,
-      "vol": 58900470.236185,
-      "vw": 706.5061,
-      "dayRet": -0.0087289519626062,
-      "rangePct": 0.012157177451146015,
-      "score": 204671.66383190948
+      "open": 709.15,
+      "high": 711.45,
+      "low": 708.22,
+      "close": 711.21,
+      "dollarVol": 30180051110.124268,
+      "vol": 42518498.41785,
+      "vw": 709.8099,
+      "dayRet": 0.002904886131284015,
+      "rangePct": 0.004554748642741336,
+      "score": 175022.2826388808
     },
     {
       "ticker": "QQQ",
-      "open": 648.41,
-      "high": 650.2,
-      "low": 642.21,
-      "close": 644.33,
-      "dollarVol": 25567096576.11261,
-      "vol": 39554881.360732,
-      "vw": 646.3702,
-      "dayRet": -0.0062923150475778095,
-      "rangePct": 0.012322450301506777,
-      "score": 160848.94723998825
+      "open": 650.15,
+      "high": 655.33,
+      "low": 648.52,
+      "close": 655.11,
+      "dollarVol": 24373742603.8607,
+      "vol": 37368402.935201,
+      "vw": 652.2554,
+      "dayRet": 0.007629008690302294,
+      "rangePct": 0.0104745058832578,
+      "score": 158959.73606067494
     },
     {
       "ticker": "NVDA",
-      "open": 202.13,
-      "high": 202.75,
+      "open": 200.99,
+      "high": 202.5,
       "low": 199.0,
-      "close": 199.88,
-      "dollarVol": 21654034924.40604,
-      "vol": 107894969.864327,
-      "vw": 200.6955,
-      "dayRet": -0.011131450056894079,
-      "rangePct": 0.01855241676149013,
-      "score": 148214.72917909556
+      "close": 202.5,
+      "dollarVol": 21650871113.60113,
+      "vol": 107501042.016078,
+      "vw": 201.4015,
+      "dayRet": 0.007512811582665759,
+      "rangePct": 0.017413801681675705,
+      "score": 150829.3604143504
     },
     {
       "ticker": "TSLA",
-      "open": 393.0,
-      "high": 393.95,
-      "low": 385.2201,
-      "close": 386.42,
-      "dollarVol": 19686533213.365326,
-      "vol": 50518744.14657,
-      "vw": 389.6877,
-      "dayRet": -0.01674300254452922,
-      "rangePct": 0.022213486005089024,
-      "score": 141024.0796161143
+      "open": 387.57,
+      "high": 393.01,
+      "low": 385.3,
+      "close": 387.51,
+      "dollarVol": 24361255248.662933,
+      "vol": 62362785.897682,
+      "vw": 390.6377,
+      "dayRet": -0.00015481074386563013,
+      "rangePct": 0.019893180586732666,
+      "score": 159161.22767010197
     }
   ],
   "shortlist_count": 150,
-  "generated_at": "2026-04-22T16:31:26.729364",
+  "generated_at": "2026-04-23T12:17:24.629161",
   "verification": {
     "passed": true,
     "issues": []
