@@ -1,18 +1,18 @@
 [
   {
-    "headline": "Why local-first feels different",
-    "sub": "Less cloud dependency. More trader control."
+    "headline": "Why local-first feels cleaner",
+    "sub": "Less app-switching, more chart context"
   },
   {
-    "headline": "Your charts stay your charts",
-    "sub": "Signals run on your Mac, not us."
+    "headline": "Context should stay nearby",
+    "sub": "Your workflow works better without extra tabs"
   },
   {
-    "headline": "Fewer tabs, fewer decisions",
-    "sub": "Overlay context inside your TradingView workflow."
+    "headline": "Fewer hops, calmer decisions",
+    "sub": "Reduce friction before acting on a setup"
   },
   {
-    "headline": "Control beats black-box hype",
-    "sub": "You decide what matters and when."
+    "headline": "Control stays with you",
+    "sub": "Neural-Engine runs locally on Mac"
   }
 ]
