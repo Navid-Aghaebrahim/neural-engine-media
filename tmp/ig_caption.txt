@@ -1,7 +1,7 @@
-Less friction is underrated.
-The best workflow upgrades remove repetitive clicks so you can spend more attention on context, invalidation, and execution discipline.
-That’s why we like tools that fit inside TradingView instead of trying to replace the trader.
+Most trading tools add another screen to monitor.
+Neural-Engine is built to stay closer to your chart, your workflow, and your control.
+A local-first overlay can feel simpler because context doesn’t have to keep leaving TradingView.
 Join the waitlist → neural-engine.tech
 Not financial advice. Trade responsibly.
 
-#tradingview #tradingworkflow #tradingpsychology #riskmanagement #localfirst #privacybydesign #fintech #tradingtools #charting #technicalanalysis #traderlife #macapps #aifortraders #workflowdesign #uxdesign #uidesign #marketstructure #priceaction #alerts #watchlist #swingtrading #daytrading #investingtools #discretionarytrading #tradingdiscipline #tradingroutine #processoveroutcome #decisionmaking #overlay #neuralengine
+#NeuralEngine #TradingView #TradingWorkflow #LocalFirst #PrivacyFirst #OnDeviceAI #MacApps #TraderTools #Charting #TradingSignals #AIAssistant #FintechDesign #TradingPsychology #RiskManagement #DiscretionaryTrading #SystematicTrading #WorkflowDesign #ChartAnalysis #PriceAction #MarketStructure #SwingTrading #DayTradingTools #TechForTraders #SignalOverlay #DesktopTrading #PrivacyByDesign #TradingEducation #Fintech #BuiltForMac
