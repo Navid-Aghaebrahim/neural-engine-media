@@ -226,5 +226,37 @@
       "cta": "Watch smarter, not harder"
     },
     "caption": "Better trading workflows start with calmer decisions.\n\nWhat this post is really about: Pre-defining invalidation improves discipline.\nWhy it matters: Neural-Engine adds structure inside TradingView.\n\nA simple rule:\n\u2022 read context first\n\u2022 define risk before entry\n\u2022 let the tool support the decision, not replace it\n\nIf you want a more structured workflow, watch smarter, not harder.\n\n#trading #tradingview #fintech #investingtools #ai #stockmarket #riskmanagement"
+  },
+  {
+    "post_type": "myth-vs-fact",
+    "theme": "privacy",
+    "hook": "A better pre-trade checklist",
+    "lesson": "Local-first tools reduce workflow friction and privacy concerns.",
+    "benefit": "The product keeps the trader in control instead of hiding behind automation.",
+    "cta": "Watch smarter, not harder",
+    "angle": "privacy and control",
+    "slides": null,
+    "single": {
+      "headline": "A better pre-trade checklist",
+      "sub": "Local-first tools reduce workflow friction and privacy concerns. The product keeps the trader in",
+      "cta": "Watch smarter, not harder"
+    },
+    "caption": "A better pre-trade checklist.\n\nWhat this post is really about: Local-first tools reduce workflow friction and privacy concerns.\nWhy it matters: The product keeps the trader in control instead of hiding behind automation.\n\nA simple rule:\n\u2022 read context first\n\u2022 define risk before entry\n\u2022 let the tool support the decision, not replace it\n\nIf you want a more structured workflow, watch smarter, not harder.\n\n#trading #tradingview #fintech #investingtools #ai #stockmarket #riskmanagement"
+  },
+  {
+    "post_type": "faq",
+    "theme": "risk",
+    "hook": "What good risk prep looks like",
+    "lesson": "A signal without risk rules is just temptation.",
+    "benefit": "Neural-Engine helps surface setups while the trader keeps the decision.",
+    "cta": "Build a calmer process",
+    "angle": "position sizing discipline",
+    "slides": null,
+    "single": {
+      "headline": "What good risk prep looks like",
+      "sub": "A signal without risk rules is just temptation. Neural-Engine helps surface setups while the",
+      "cta": "Build a calmer process"
+    },
+    "caption": "What good risk prep looks like.\n\nWhat this post is really about: A signal without risk rules is just temptation.\nWhy it matters: Neural-Engine helps surface setups while the trader keeps the decision.\n\nA simple rule:\n\u2022 read context first\n\u2022 define risk before entry\n\u2022 let the tool support the decision, not replace it\n\nIf you want a more structured workflow, build a calmer process.\n\n#trading #tradingview #fintech #investingtools #ai #stockmarket #riskmanagement"
   }
 ]
